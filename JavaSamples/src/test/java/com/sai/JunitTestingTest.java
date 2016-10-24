@@ -13,6 +13,7 @@ import org.junit.Test;
  */
 public class JunitTestingTest {
 
+	
 	/**
 	 * Test method for {@link com.sai.JunitTesting#square(int)}.
 	 */
