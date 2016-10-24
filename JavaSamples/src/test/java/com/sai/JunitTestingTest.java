@@ -24,6 +24,7 @@ public class JunitTestingTest {
 		assertEquals(25, output);
 	}
 
+	
 	/**
 	 * Test method for {@link com.sai.JunitTesting#countNoOfAs(java.lang.String)}.
 	 */
