@@ -1,4 +1,4 @@
-package com.sai.junk;
+package com.sai.ArrayProblems;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -15,7 +15,7 @@ class FindIntegerCountInSortedArray{
 
 		//Integer[] spam = new Integer[] { 1, 2, 3 };
 		
-        ArrayList list = new ArrayList();
+        ArrayList<int[]> list = new ArrayList<int[]>();
         
         list.addAll(Arrays.asList(a1));
         int first = list.indexOf(value);
@@ -23,7 +23,7 @@ class FindIntegerCountInSortedArray{
         
 		int ct = findduplicatecount(a1, value);
 		System.out.println("____"+ct);
-		System.out.println("__"+ last);
+		System.out.println(first+"__"+ last);
 	}
 
 	public static int findduplicatecount(int []a1, int value){

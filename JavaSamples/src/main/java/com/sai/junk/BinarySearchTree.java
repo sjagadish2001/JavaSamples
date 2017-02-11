@@ -8,28 +8,81 @@ public class BinarySearchTree {
 
 		BinarySearchTree bst = new BinarySearchTree();
 
-		System.out.println("____" + root);
 		bst.insertNode(14, root);
-		System.out.println("____" + root);
 		bst.insertNode(22, root);
-		System.out.println("____" + root);
+		bst.insertNode(10, root);
 		bst.insertNode(1, root);
+		bst.insertNode(21, root);
+		
 
-		System.out.println("____" + root);
-		printBST(root);
+		bst.printBST(root);
 		bst.searchNode(22, root);
-		System.out.println("____" + root);
+		bst.printMinValue(root);
+		bst.printMaxValue(root);
+		
+		System.out.println("IN order");
+		bst.inorder(root);
+		System.out.println("----------");
+		System.out.println("Pre order");
+		bst.preorder(root);
+		System.out.println("----------");
+		System.out.println("Post order");
+		bst.postorder(root);
 	}
 
+	
+	public void printMinValue(Node root){
+		
+		if (root.leftNode != null) {
+			printMinValue(root.leftNode);
+		} else {
+		System.out.println("Min:" + root.data);
+		}
+		
+	}
+	
+	public void printMaxValue(Node root){
+		if (root.rightNode != null) {
+			printMaxValue(root.rightNode);
+		} else {
+		System.out.println("Max:" + root.data);
+		}
+		
+	}
 
-	public static void printBST(Node root){
+	public  void printBST(Node root){
+		if(root!=null){
+			System.out.print(" " + root.data);
+			printBST(root.leftNode);
+			printBST(root.rightNode);
+		}
+	}
+	
 
+	public void inorder(Node root){
 		if(root!=null){
 			printBST(root.leftNode);
 			System.out.print(" " + root.data);
 			printBST(root.rightNode);
 		}
 	}
+	
+	public void preorder(Node root){
+		if(root!=null){
+			System.out.print(" " + root.data);
+			printBST(root.leftNode);
+			printBST(root.rightNode);
+		}
+	}
+	
+	public void postorder(Node root){
+		if(root!=null){
+			printBST(root.leftNode);
+			printBST(root.rightNode);
+			System.out.println(" " + root.data);
+		}
+	}
+
 
 
 	public void insertNode(int key, Node root){

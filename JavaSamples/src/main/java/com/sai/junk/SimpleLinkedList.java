@@ -2,58 +2,82 @@ package com.sai.junk;
 
 public class SimpleLinkedList {
 
-	Node head = null;
-	
+	 Node head = null;
+
 
 	public static void main(String args[]){
-		Node n = new Node(4, null);
-		n.data = 4;
-		n.nextNode = null;
-	}
-
-
-
-	public void addFirst(Node newNode) {
-		if (newNode == null) {
-			return;
-		} else {
-			if (head == null) {
-				head = newNode;
-				head.nextNode = null;
-			} else {
-				newNode.nextNode = head;
-				head = newNode;
-			}
-		}
-	}
-
-	public void addLast(Node newNode) {
-		if (newNode == null) {
-			return;
-		} else {
-			if(head == null) addFirst(newNode);
-			else {
-				Node tmp = head;
-				while (tmp.nextNode != null) {
-					tmp = tmp.nextNode;
-				}
-				tmp.nextNode = newNode;
-			}
-
-		}
+		
+		SimpleLinkedList ll = new SimpleLinkedList();
+		ll.addFirst(4);
+		ll.addFirst(6);
+		ll.addLast(77);
+		ll.addLast(68);
+		ll.addLast(600);
+		ll.insertAfter(77, 78);
+		ll.printlist();
+		ll.delete(77);
+		ll.printlist();
+		ll.find(68);
 	}
 	
-	public void insertAfter(int key, int newValue) {
+	
+	public void find(int v) {
+		
+	}
+
+
+	public void printlist() {
+		Node tmp = head;
+		while(tmp.nextNode != null) {
+			System.out.println("__"+tmp.data);
+			tmp = tmp.nextNode;
+		}
+		System.out.println("__"+tmp.data);//print the last one
+	}
+	
+	
+	public void delete(int val){
 		
 		Node tmp = head;
+		Node before = null;
+		while (tmp.data != val && tmp.nextNode != null) {
+			before = tmp;
+			//System.out.println("__"+tmp.data);	
+			tmp = tmp.nextNode;
+		}
+		before.nextNode = tmp.nextNode; //update link
 		
+	}
+	
+
+	public void addFirst(int val) {
+
+		if (head == null) {
+			head = new Node(val, null);
+		} else {
+			Node n = new Node(val, head);
+			head = n; //new head
+
+		}
+	}
+
+	public void addLast(int val) {
+		if(head == null) addFirst(val);
+		else {
+			Node tmp = head;
+			while (tmp.nextNode != null) {
+				tmp = tmp.nextNode;
+			}
+			tmp.nextNode = new Node(val, null);
+		}
+	}
+
+	public void insertAfter(int key, int newValue) {
+		Node tmp = head;
 		while(tmp != null && !(tmp.data == key)){
 			tmp = tmp.nextNode;
 		}
-		
 		tmp.nextNode = new Node(newValue, tmp.nextNode);
-		
-		
 	}
 
 
