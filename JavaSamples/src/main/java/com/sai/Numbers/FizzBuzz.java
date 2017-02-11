@@ -1,4 +1,4 @@
-package com.sai.StringProblems;
+package com.sai.Numbers;
 
 public class FizzBuzz {
 	public static void main(String args[]){ 

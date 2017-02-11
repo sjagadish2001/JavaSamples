@@ -1,4 +1,4 @@
-package com.sai.junk;
+package com.sai.Numbers;
 
 public class Fibonacci {
     public static long fib(int n) {
@@ -7,7 +7,7 @@ public class Fibonacci {
     }
 
     public static void main(String[] args) {
-        int N = 7;//Integer.parseInt(args[0]);
+        int N = 100;//Integer.parseInt(args[0]);
         for (int i = 0; i <= N; i++)
             System.out.println(i + ": " + fib(i));
     }

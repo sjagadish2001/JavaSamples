@@ -1,4 +1,4 @@
-package com.sai.junk;
+package com.sai.Numbers;
 
 public class Factorial {
 
